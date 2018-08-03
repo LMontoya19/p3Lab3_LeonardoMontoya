@@ -1,11 +1,13 @@
 #include <iostream>
 #include <string>
 #include <math.h>
+#include <iomanip>
 
 using std::cout;
 using std::cin;
 using std::endl;
 using std::string;
+using std::setw;
 int main(){
   char resp = 's';
   while(resp=='s'){
@@ -87,10 +89,41 @@ int main(){
 		  cout<<"Ingrese cantidad de repeticiones.";
 		  int repeticiones;
 		  cin>>repeticiones;
-		  for(int i=1;i<repeticiones;i++){} 
+		  for(int i=0;i<repeticiones;i++){
+			cout<<setw(repeticiones-i);
+			long double factorial3;
+                         factorial3 = 1;
+                         for(int j=1;j<=i;j++){
+                            factorial3*= j;
+            		 }//factorial filas     
+		    for(int k =0;k<=i;k++){
+		    long double factorial4;
+                         factorial4 = 1;
+                         for(int j=1;j<=k;j++){
+                            factorial4*= j;
+                         }//factorial columna  
+		    long double factorial5;
+                         factorial5 = 1;
+                         for(int j=1;j<=i-k;j++){
+                            factorial5*= j;
+
+                         }//factorial fila menos columna  
+		      int resultado;
+		      resultado = factorial3/(factorial4*factorial5);
+			if(resultado%2==0){
+			cout <<"o"<<" ";
+
+			}else{
+	     	      cout <<"*"<<" ";
+                          }
+		    }// fin for fillas
+		    cout<<endl;
+		  } 
 		   break;
 		   }
-    
+
+	   case 4 : resp = 'n';
+   			break; 
     }//Fin switch
   }//Fin while
 return 0;
